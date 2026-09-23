@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Vakyro palette: bg #201D24, purple #6F5198/#7A5FA0/#9B7BC8, lilac #B79BDB, pink #F3C5D9, text #E8E3EE -->
+  <rect width="512" height="512" fill="#201D24"/>
+  <g transform="translate(0 22)">
+  <!-- color halo: three overlapping lights = a color bulb -->
+  <g style="mix-blend-mode:screen">
+    <circle cx="196" cy="168" r="112" fill="#6F5198"/>
+    <circle cx="316" cy="168" r="112" fill="#F3C5D9" opacity="0.85"/>
+    <circle cx="256" cy="252" r="112" fill="#9B7BC8" opacity="0.9"/>
+  </g>
+  <!-- bulb glass -->
+  <path d="M256 96 C313 96 356 140 356 195 C356 233 337 256 320 276 C307 291 302 303 302 318 L210 318 C210 303 205 291 192 276 C175 256 156 233 156 195 C156 140 199 96 256 96 Z" fill="#E8E3EE"/>
+  <!-- filament -->
+  <path d="M228 318 L228 250 L242 226 L256 250 L270 226 L284 250 L284 318" fill="none" stroke="#6F5198" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- base -->
+  <rect x="208" y="332" width="96" height="22" rx="8" fill="#B79BDB"/>
+  <rect x="212" y="362" width="88" height="22" rx="8" fill="#B79BDB"/>
+  <rect x="232" y="392" width="48" height="20" rx="10" fill="#F3C5D9"/>
+  </g>
+</svg>

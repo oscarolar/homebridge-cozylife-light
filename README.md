@@ -1,4 +1,9 @@
+<p align="center"><img src="assets/icon.png" width="128" alt="homebridge-cozylife-light icon"></p>
+
 # homebridge-cozylife-light
+
+[![npm](https://img.shields.io/npm/v/homebridge-cozylife-light)](https://www.npmjs.com/package/homebridge-cozylife-light)
+[![Build and test](https://github.com/oscarolar/homebridge-cozylife-light/actions/workflows/build.yml/badge.svg)](https://github.com/oscarolar/homebridge-cozylife-light/actions/workflows/build.yml)
 
 Homebridge plugin for **CozyLife** smart bulbs (Doiting ESP-based bulbs sold under
 CozyLife and other brands), controlled over their **local LAN API**, with no cloud
