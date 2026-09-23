@@ -1,0 +1,48 @@
+{
+  "pluginAlias": "CozyLifeLight",
+  "pluginType": "platform",
+  "singular": true,
+  "headerDisplay": "CozyLife bulbs controlled over the local network (TCP 5555), no cloud. Give each bulb a DHCP reservation in your router: the accessory is keyed by its IP.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Platform name",
+        "type": "string",
+        "default": "CozyLife Light",
+        "required": true
+      },
+      "lights": {
+        "title": "Lights",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {"title": "Name", "type": "string", "required": true},
+            "ip": {"title": "IP address", "type": "string", "format": "ipv4", "required": true},
+            "color": {
+              "title": "Color (RGB) bulb",
+              "type": "boolean",
+              "default": true,
+              "description": "Uncheck for white-only bulbs."
+            },
+            "pollInterval": {
+              "title": "Status poll interval (seconds)",
+              "type": "integer",
+              "default": 60,
+              "minimum": 30,
+              "description": "How often to read the bulb's state (to catch wall-switch changes and detect it going offline). These bulbs handle one connection at a time; polling faster makes them queue HomeKit commands."
+            },
+            "timeout": {
+              "title": "Command timeout (seconds)",
+              "type": "integer",
+              "default": 5,
+              "minimum": 1
+            },
+            "port": {"title": "Port", "type": "integer", "default": 5555}
+          }
+        }
+      }
+    }
+  }
+}

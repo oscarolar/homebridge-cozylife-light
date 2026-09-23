@@ -1,0 +1,44 @@
+{
+  "name": "homebridge-cozylife-light",
+  "displayName": "CozyLife Light",
+  "version": "0.1.0",
+  "description": "Homebridge plugin for CozyLife smart bulbs over their local LAN API (no cloud), with command coalescing and gentle polling.",
+  "license": "MIT",
+  "author": "Oscar Alcalá",
+  "homepage": "https://github.com/oscarolar/homebridge-cozylife-light#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscarolar/homebridge-cozylife-light.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oscarolar/homebridge-cozylife-light/issues"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "config.schema.json"
+  ],
+  "engines": {
+    "node": "^20.18.0 || ^22.10.0 || ^24.0.0 || ^26.0.0",
+    "homebridge": "^1.8.0 || ^2.0.0"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "cozylife",
+    "doiting",
+    "light",
+    "bulb",
+    "local"
+  ],
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "test": "npm run build && node --test test/*.test.js",
+    "prepublishOnly": "npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.4",
+    "homebridge": "^2.4.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.9.3"
+  }
+}
