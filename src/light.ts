@@ -79,8 +79,8 @@ export class CozyLifeLight {
       }));
 
     const pollSeconds = Math.max(30, config.pollInterval ?? 60);
-    this.poll();
-    this.pollTimer = setInterval(() => this.poll(), pollSeconds * 1000);
+    this.safePoll();
+    this.pollTimer = setInterval(() => this.safePoll(), pollSeconds * 1000);
     platform.api.on('shutdown', () => clearInterval(this.pollTimer));
   }
 
@@ -120,6 +120,10 @@ export class CozyLifeLight {
       this.failedPolls++;
       throw this.notResponding();
     }
+  }
+
+  private safePoll(): void {
+    this.poll().catch(error => this.platform.log.error(`${this.config.name}: poll failed: ${(error as Error).message}`));
   }
 
   private async poll(): Promise<void> {

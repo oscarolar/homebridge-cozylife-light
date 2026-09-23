@@ -22,7 +22,9 @@ export class CozyLifeLightPlatform implements DynamicPlatformPlugin {
     readonly config: PlatformConfig,
     readonly api: API,
   ) {
-    api.on('didFinishLaunching', () => this.setup());
+    api.on('didFinishLaunching', () => {
+      this.setup().catch(error => this.log.error(`Setup failed: ${(error as Error).message}`));
+    });
   }
 
   configureAccessory(accessory: PlatformAccessory): void {
