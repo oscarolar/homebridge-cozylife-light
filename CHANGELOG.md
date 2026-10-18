@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+- Declare HAP support (`supports-hap` keyword).
+- Config schema: list required fields in object-level `required` arrays
+  instead of per-property booleans.
+
 ## 0.1.1
 
 - Catch and log errors during platform setup and state polling instead of

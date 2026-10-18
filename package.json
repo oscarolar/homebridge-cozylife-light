@@ -1,7 +1,7 @@
 {
   "name": "homebridge-cozylife-light",
   "displayName": "CozyLife Light",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Homebridge plugin for CozyLife smart bulbs over their local LAN API (no cloud), with command coalescing and gentle polling.",
   "license": "MIT",
   "author": "Oscar Alcalá",
@@ -24,6 +24,7 @@
   },
   "keywords": [
     "homebridge-plugin",
+    "supports-hap",
     "cozylife",
     "doiting",
     "light",

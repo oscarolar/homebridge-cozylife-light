@@ -5,21 +5,22 @@
   "headerDisplay": "CozyLife bulbs controlled over the local network (TCP 5555), no cloud. Give each bulb a DHCP reservation in your router: the accessory is keyed by its IP.",
   "schema": {
     "type": "object",
+    "required": ["name"],
     "properties": {
       "name": {
         "title": "Platform name",
         "type": "string",
-        "default": "CozyLife Light",
-        "required": true
+        "default": "CozyLife Light"
       },
       "lights": {
         "title": "Lights",
         "type": "array",
         "items": {
           "type": "object",
+          "required": ["name", "ip"],
           "properties": {
-            "name": {"title": "Name", "type": "string", "required": true},
-            "ip": {"title": "IP address", "type": "string", "format": "ipv4", "required": true},
+            "name": {"title": "Name", "type": "string"},
+            "ip": {"title": "IP address", "type": "string", "format": "ipv4"},
             "color": {
               "title": "Color (RGB) bulb",
               "type": "boolean",
