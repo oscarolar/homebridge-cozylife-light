@@ -1,39 +1,9 @@
 const {test} = require('node:test');
 const assert = require('node:assert');
-const net = require('node:net');
 const {CozyLifeClient} = require('../dist/client');
 const {Coalescer} = require('../dist/coalescer');
 const mapping = require('../dist/mapping');
-
-// Fake CozyLife bulb: answers each JSON line after `delayMs`, records every
-// request and the highest number of requests being handled at the same time
-// (received but not yet answered).
-function fakeBulb({delayMs = 20, reply} = {}) {
-  const state = {requests: [], busy: 0, maxBusy: 0};
-  const sockets = new Set();
-  const server = net.createServer(socket => {
-    sockets.add(socket);
-    socket.on('data', data => {
-      const request = JSON.parse(data.toString().trim());
-      state.requests.push(request);
-      state.busy++;
-      state.maxBusy = Math.max(state.maxBusy, state.busy);
-      const response = reply ? reply(request) : {...request, msg: {attr: [1], data: {1: 1}}, res: 0};
-      if (response === null) {
-        return; // never answer
-      }
-      setTimeout(() => {
-        state.busy--;
-        socket.write(JSON.stringify(response) + '\n');
-      }, delayMs);
-    });
-  });
-  return new Promise(resolve => server.listen(0, '127.0.0.1', () =>
-    resolve({state, port: server.address().port, close: () => {
-      sockets.forEach(s => s.destroy());
-      server.close();
-    }})));
-}
+const {fakeBulb} = require('./helpers');
 
 test('requests are serialized: the device never gets a request before answering the last one', async () => {
   const bulb = await fakeBulb({delayMs: 30});

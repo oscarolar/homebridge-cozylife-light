@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.2.0
+
+- Matter support (`supports-matter`): on Homebridge 2.x bridges with Matter
+  enabled, each bulb is also exposed as a Matter light (Extended Color Light, or
+  Color Temperature Light for `color: false`) so Google Home and other Matter
+  controllers can use it. On/off, brightness, hue/saturation, xy color and
+  color temperature.
+- One device per bulb shared by the HomeKit and Matter views: still a single
+  connection, a single poll and coalesced writes per bulb. Changes made from one
+  side show up on the other.
+- HomeKit accessories, UUIDs and behavior are unchanged; Homebridge 1.x and
+  bridges without Matter keep working as before.
+
 ## 0.1.2
 
 - Declare HAP support (`supports-hap` keyword).
