@@ -2,6 +2,7 @@
 
 # homebridge-cozylife-light
 
+[![verified-by-homebridge](https://img.shields.io/badge/homebridge-verified-blueviolet?color=%23491F59&style=flat)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
 [![npm](https://img.shields.io/npm/v/homebridge-cozylife-light)](https://www.npmjs.com/package/homebridge-cozylife-light)
 [![Build and test](https://github.com/oscarolar/homebridge-cozylife-light/actions/workflows/build.yml/badge.svg)](https://github.com/oscarolar/homebridge-cozylife-light/actions/workflows/build.yml)
 
