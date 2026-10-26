@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1
+
+- Add a `funding` link (PayPal) so the Homebridge UI shows a Donate button.
+- README: Verified by Homebridge badge.
+
 ## 0.2.0
 
 - Matter support (`supports-matter`): on Homebridge 2.x bridges with Matter
